@@ -1,5 +1,5 @@
 #include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
-#include "retarget_stm32f4.h"
+#include "SerialStream_stm32f4.h"
 
 void tarea1(void const * arguments); //tarea 1
 osThreadId  tarea1ID;	//identificador del hilo tarea 1
@@ -14,8 +14,8 @@ void tarea2Init(void);//funcion que iniciliza la tarea1
 
 int main(){
 	//User application
-	USART2_init(9600);
-	USART2_sendChar('g');
+	SerialStream* serial  = new SerialUSART2(9600);
+	serial->printf("\nHello World\n");
 	osKernelInitialize();
 	tarea1Init();
 	tarea2Init();

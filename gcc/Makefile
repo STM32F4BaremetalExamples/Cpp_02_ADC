@@ -8,7 +8,7 @@ OUTPUT_EXEC:= salida.elf
 SPL_FILES:= $(notdir $(wildcard ../STM32F4xx_StdPeriph_Driver/src/*.c ))
 
 C_SOURCE_FILES:= system_stm32f4xx.c $(SPL_FILES) RTX_Conf_CM.c delay.c retarget_stm32f4.c
-CXX_SOURCE_FILES:= main.cc SerialStream.cc
+CXX_SOURCE_FILES:= main.cc SerialStream.cc SerialStream_stm32f4.cc
 ASM_SOURCE_FILES:= startup_stm32f401xe.S
 LINKER_FILES:= ./CMSIS_RTX/bin/libRTX_CM4.a
 
